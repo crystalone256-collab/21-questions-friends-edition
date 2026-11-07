@@ -1,0 +1,17 @@
+"use client";
+import { useEffect,useState } from "react";
+import { useParams } from "next/navigation";
+import { questions } from "../../../lib/questions";
+
+export default function PlayPage(){
+  const {id}=useParams();
+  const [challenge,setChallenge]=useState(null),[name,setName]=useState(""),[answers,setAnswers]=useState(Array(21).fill(-1)),[result,setResult]=useState(null),[error,setError]=useState(""),[busy,setBusy]=useState(false);
+  useEffect(()=>{if(id)fetch(`/api/challenges/${id}`).then(r=>r.json()).then(d=>{if(d.error)throw new Error(d.error);setChallenge(d);}).catch(e=>setError(e.message));},[id]);
+  async function submit(e){e.preventDefault();setError("");if(!name.trim()||answers.some(a=>a<0)){setError("Enter your name and answer all 21 questions.");return;}setBusy(true);try{const r=await fetch("/api/attempts",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({challengeId:id,participantName:name.trim(),answers})});const d=await r.json();if(!r.ok)throw new Error(d.error||"Could not submit your answers.");setResult(d);}catch(e){setError(e.message);}finally{setBusy(false);}}
+  if(!challenge&&!error)return <main className="narrow"><div className="panel">Loading challenge…</div></main>;
+  if(error&&!challenge)return <main className="narrow"><div className="panel"><h1>Challenge unavailable</h1><p>{error}</p><a className="btn" href="/">Create your own</a></div></main>;
+  return <main className="narrow"><div className="brand">✦ 21 QUESTIONS · FRIENDS EDITION</div><header className="hero"><h1>How well do you know <span className="gradient">{challenge.creator_name}</span>?</h1><p className="sub">Answer all 21 and see how closely you know your friend.</p></header>
+  {result?<section className="panel"><div className="small">YOUR FINAL SCORE</div><div className="result">{result.score}/21</div><h2>{result.score>=18?"You know them incredibly well!":result.score>=12?"A pretty good friend!":result.score>=7?"There is still more to discover.":"Time for more friendship conversations!"}</h2><p className="muted">Here are {challenge.creator_name}'s actual answers:</p>{questions.map((q,i)=><div className="question" key={i}><strong>{i+1}. {q.q}</strong><p style={{color:result.correctAnswers[i]===result.creatorAnswers[i]?"#bda2ff":"#f0a1a1"}}>Their answer: {q.o[result.creatorAnswers[i]]}</p><p className="small">Your answer: {q.o[result.correctAnswers[i]]} · {result.correctAnswers[i]===result.creatorAnswers[i]?"Correct ✓":"Not quite"}</p></div>)}<div className="actions"><a className="btn" href="/">Create your own challenge →</a></div></section>:
+  <form className="panel" onSubmit={submit}><div className="field"><label>Your name</label><input value={name} onChange={e=>setName(e.target.value)} maxLength={40} placeholder="Enter your name"/></div>{questions.map((q,i)=><div className="question" key={i}><div className="topline"><strong>QUESTION {i+1} OF 21</strong><span>{answers[i]>=0?"Answered ✓":"Choose one"}</span></div><label>{q.q}</label><div className="options">{q.o.map((o,j)=><button type="button" key={j} className={`option ${answers[i]===j?"selected":""}`} onClick={()=>setAnswers(a=>a.map((v,k)=>k===i?j:v))}>{String.fromCharCode(65+j)}. {o}</button>)}</div></div>)}{error&&<div className="notice">{error}</div>}<div className="actions"><button className="btn" disabled={busy}>{busy?"Checking…":"Submit my answers →"}</button></div></form>}
+  <div className="footer">Real friends. Real memories. 💜</div></main>;
+}

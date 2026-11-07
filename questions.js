@@ -1,0 +1,23 @@
+export const questions = [
+  { q: "What is my ideal way to spend a free afternoon?", o: ["Watching a movie", "Playing a sport", "Reading or learning", "Going out with friends"] },
+  { q: "Which meal would I choose first?", o: ["Rice and chicken", "Matooke and groundnut sauce", "Pizza or burgers", "A tasty local snack"] },
+  { q: "What matters most to me in a friendship?", o: ["Honesty", "Loyalty", "A good sense of humour", "Being supportive"] },
+  { q: "Which describes me best?", o: ["Quiet and observant", "Talkative and energetic", "Funny and playful", "A little bit of everything"] },
+  { q: "What would I most likely do on a weekend?", o: ["Rest and recharge", "Play sports", "Meet friends", "Work on a personal goal"] },
+  { q: "Which school subject do I enjoy most?", o: ["Sciences", "Mathematics", "Languages and literature", "ICT or practical subjects"] },
+  { q: "What kind of music do I usually enjoy?", o: ["Gospel", "Afrobeats", "Hip-hop", "A mix of everything"] },
+  { q: "What is my biggest strength?", o: ["Determination", "Kindness", "Creativity", "Leadership"] },
+  { q: "Which would I choose for a trip?", o: ["A peaceful nature spot", "A busy city", "The beach", "A new cultural experience"] },
+  { q: "What annoys me most?", o: ["Dishonesty", "Being ignored", "Disrespect", "Unnecessary drama"] },
+  { q: "How do I usually handle stress?", o: ["Pray or reflect", "Talk to someone", "Keep busy", "Take time alone"] },
+  { q: "Which role do I naturally take in a group?", o: ["The organiser", "The entertainer", "The problem-solver", "The encourager"] },
+  { q: "What would I value most as a gift?", o: ["Something thoughtful", "A handwritten note", "Something useful", "An experience together"] },
+  { q: "Which sport would I most likely play?", o: ["Football", "Basketball", "Handball", "Volleyball"] },
+  { q: "What motivates me most?", o: ["My goals", "My family", "My faith", "People who believe in me"] },
+  { q: "What is my preferred communication style?", o: ["Text messages", "Phone calls", "Face-to-face conversations", "Voice notes"] },
+  { q: "Which quality do I admire most in others?", o: ["Confidence", "Humility", "Wisdom", "Courage"] },
+  { q: "If I had a whole day off, what would I do?", o: ["Sleep and relax", "Explore somewhere", "Spend time with people", "Learn or create something"] },
+  { q: "What am I most likely to be remembered for?", o: ["Making people laugh", "Helping others", "Being ambitious", "Being dependable"] },
+  { q: "Which describes my sense of humour?", o: ["Dry and witty", "Playful and silly", "Sarcastic", "Unpredictable"] },
+  { q: "What do I hope my friends always know?", o: ["I appreciate them", "They can count on me", "I want them to succeed", "All of the above"] }
+];
