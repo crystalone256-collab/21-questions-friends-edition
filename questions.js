@@ -1,0 +1,23 @@
+export const questions = [
+{question:"What's my favourite type of food?",options:["Fast food","Traditional food","Seafood","Anything delicious"]},
+{question:"What's my biggest fear?",options:["Failure","Losing loved ones","Being alone","The unknown"]},
+{question:"What's my ideal weekend?",options:["Going out","Staying indoors","Travelling","Spending time with friends"]},
+{question:"What annoys me the most?",options:["Lies","Being ignored","Disrespect","Unnecessary drama"]},
+{question:"What's my biggest strength?",options:["Loyalty","Intelligence","Confidence","Kindness"]},
+{question:"When I'm stressed, what do I usually do?",options:["Sleep","Listen to music","Talk to someone","Keep to myself"]},
+{question:"What's my dream destination?",options:["Paris","Dubai","New York","Somewhere peaceful"]},
+{question:"What matters most to me in friendship?",options:["Loyalty","Honesty","Communication","Trust"]},
+{question:"What's my biggest weakness?",options:["Overthinking","Being too emotional","Trusting easily","Procrastinating"]},
+{question:"Which best describes my personality?",options:["Funny and outgoing","Quiet and observant","Adventurous","A little bit of everything"]},
+{question:"What's my favourite way to spend free time?",options:["Watching movies","Playing sports","Reading","Socialising"]},
+{question:"What would I do with a million dollars?",options:["Travel the world","Invest it","Help my family","Enjoy life"]},
+{question:"What kind of music do I enjoy most?",options:["Afrobeats","Gospel","Hip-hop","R&B"]},
+{question:"What is most likely to make me laugh?",options:["Funny stories","Memes","Silly jokes","My friends"]},
+{question:"What do I value most in people?",options:["Humility","Honesty","Respect","A good sense of humour"]},
+{question:"If I could have one superpower, what would I choose?",options:["Invisibility","Reading minds","Time travel","Teleportation"]},
+{question:"What's my biggest life ambition?",options:["Be successful","Make a difference","Become wealthy","Live a peaceful life"]},
+{question:"How do I usually handle conflict?",options:["Talk it out","Stay quiet","Get emotional","Take time before responding"]},
+{question:"What's my favourite kind of outing?",options:["A road trip","A movie date","A party","A relaxed hangout"]},
+{question:"What would I never tolerate in a friendship?",options:["Betrayal","Dishonesty","Disrespect","Constant negativity"]},
+{question:"What makes me feel most appreciated?",options:["Thoughtful gestures","Quality time","Encouraging words","Being remembered"]}
+];
