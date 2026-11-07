@@ -1,8 +1,0 @@
- "use client";
-import {useEffect,useState} from "react";
-export default function Dashboard({params}){
- const [id,setId]=useState("");const [token,setToken]=useState("");const [data,setData]=useState(null);const [error,setError]=useState("");
- useEffect(()=>{Promise.resolve(params).then(p=>setId(p.id));setToken(new URLSearchParams(location.search).get("token")||"")},[params]);
- useEffect(()=>{if(!id||!token)return;fetch(`/api/leaderboard/${id}?token=${encodeURIComponent(token)}`).then(r=>r.json()).then(d=>{if(d.error)throw new Error(d.error);setData(d)}).catch(e=>setError(e.message))},[id,token]);
- return <main><header className="hero"><div className="eyebrow">Private creator dashboard</div><h1>THE LEADERBOARD</h1><p>See who really knows you. 🏆</p></header><section className="panel">{error&&<div className="notice">{error}</div>}{!data&&!error&&"Loading leaderboard…"}{data&&<><div className="topline"><h2>{data.creator_name}'s challenge</h2><span className="pill">{data.total_attempts} attempts</span></div><p className="muted">Highest score: <b>{data.highest_score}/21</b></p>{data.leaderboard.length===0?<p className="muted">No one has attempted your challenge yet. Share your player link!</p>:<div className="table-wrap"><table><thead><tr><th>Rank</th><th>Friend</th><th>Score</th><th>Attempted</th></tr></thead><tbody>{data.leaderboard.map(x=><tr key={x.id}><td>#{x.rank}</td><td>{x.player_name}</td><td><b>{x.score}/21</b></td><td>{new Date(x.created_at).toLocaleString()}</td></tr>)}</tbody></table></div>}</>}</section></main>
-}
